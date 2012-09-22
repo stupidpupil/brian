@@ -135,10 +135,10 @@ module Brain
 
 			error = 1
 
-			i = 0
+			iterations = 0
 			options[:iterations].times do |i|
 				sum = 0
-
+				iterations = i
 				data.each do |d|
 					err = self.train_pattern(d[:input],d[:output])
 					sum += err
@@ -157,7 +157,7 @@ module Brain
 				break if error <= options[:error_thresh]
 			end
 
-			return {error:error, iterations:i}
+			return {error:error, iterations:iterations}
 		end
 
 
