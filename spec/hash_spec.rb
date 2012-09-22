@@ -1,5 +1,4 @@
 require 'brain'
-require 'brain/hash'
 
 describe Brain::NeuralNetwork do
 	describe "Can store and retrieve XOR-network" do
