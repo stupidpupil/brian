@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "brian"
   gem.require_paths = ["lib"]
   gem.version       = Brian::VERSION
-  gem.licenses      = ["MIT"]
+  gem.license       = "MIT"
 
   gem.add_development_dependency "rspec", "~> 2.11"
 end
