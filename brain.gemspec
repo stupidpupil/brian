@@ -14,6 +14,7 @@ Gem::Specification.new do |gem|
   gem.name          = "brain"
   gem.require_paths = ["lib"]
   gem.version       = Brain::VERSION
+  gem.licenses      = ["MIT"]
 
   gem.add_development_dependency "rspec", "~> 2.11"
 end

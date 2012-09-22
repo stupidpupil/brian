@@ -88,3 +88,7 @@ net.train(data)
 
 net_json = net.to_hash.to_json => "{\"layers\":...
 ```
+
+# Licensing
+
+In coherence with the licensing of the JavaScript `brain` library, this gem is licensed under the MIT license (Expat).
