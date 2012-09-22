@@ -9,6 +9,10 @@ module Brain
 			errors.map {|e| e**2}.inject(:+)/errors.length
 		end
 
+		def self.activation_function(sum)
+			1.0 / (1.0 + Math.exp(-sum))
+		end
+
 		def initialize
 			@learning_rate = 0.3
 			@momentum = 0.1
@@ -62,15 +66,15 @@ module Brain
 		def run_input(input)
 			@outputs[0] = input
 
-			@output_layer.times do |layer|
-				layer += 1
+			@sizes.count.times do |layer|
+				next if layer == 0
 				@sizes[layer].times do |node|
 					weights = @weights[layer][node]
 					sum = @biases[layer][node]
 
 					weights.each_with_index {|w,k| sum += w*input[k]}
 					
-					@outputs[layer][node] = 1.0 / (1.0 + Math.exp(-sum))
+					@outputs[layer][node] = NeuralNetwork.activation_function(sum)
 				end
 
 				input = @outputs[layer]
@@ -193,8 +197,8 @@ module Brain
 		end
 
 		def adjust_weights
-			@output_layer.times do |layer|
-				layer += 1
+			@sizes.count.times do |layer|
+				next if layer == 0
 				incoming = @outputs[layer-1]
 
 				@sizes[layer].times do |node|
