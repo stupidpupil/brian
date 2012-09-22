@@ -1,11 +1,11 @@
-module Brain
+module Brian
 	module Lookup
 		def self.build_lookup(hashes)
 			hash = hashes.reduce do |memo, hash|
 				memo.merge(hash)
 			end
 
-			return Brain::Lookup.lookup_from_hash(hash)
+			return Brian::Lookup.lookup_from_hash(hash)
 		end
 
 		def self.lookup_from_hash(hash)

@@ -1,10 +1,10 @@
-# brain
+# brian
 
-`brain` is a Ruby port of a [neural network](http://en.wikipedia.org/wiki/Artificial_neural_network) library, implementing a [multilayer perceptron](http://en.wikipedia.org/wiki/Multilayer_perceptron). The JavaScript library that it is based on can be found [here](https://github.com/harthur/brain). 
+`brian` is a Ruby port of a [neural network](http://en.wikipedia.org/wiki/Artificial_neural_network) library, implementing a [multilayer perceptron](http://en.wikipedia.org/wiki/Multilayer_perceptron). The JavaScript library called `brain.js` that it is based on can be found [here](https://github.com/harthur/brain). 
 
 Here's an example of using it to approximate the XOR function:
 ```ruby
-net = Brain::NeuralNetwork.new
+net = Brian::NeuralNetwork.new
 
 net.train([{input: [0, 0], output: [0]},
 		   {input: [0, 1], output: [1]},
@@ -25,7 +25,7 @@ Use `train()` to train the network with an array of training data. The network h
 Each training pattern should have an `input` and an `output`, both of which can be either an array of numbers from `0` to `1` or a hash of numbers from `0` to `1`. For a Ruby port of the [color constrast demo](http://harthur.github.com/brain/) it would like something like this:
 
 ```ruby
-net = Brain::NeuralNetwork.new
+net = Brian::NeuralNetwork.new
 
 net.train([{input: { r: 0.03, g: 0.7, b: 0.5 }, output: { black: 1.0 }},
 	       {input: { r: 0.16, g: 0.09, b: 0.2 }, output: { white: 1.0 }},
@@ -66,14 +66,14 @@ The states of trained networks can be stored with `#to_hash` and retrieved with 
 
 ```ruby
 
-net = Brain::NeuralNetwork.new
+net = Brian::NeuralNetwork.new
 net.train(data)
 
 saved_state = net.to_hash
 
 #...
 
-net = Brain::NeuralNetwork.new_with_hash(saved_state)
+net = Brian::NeuralNetwork.new_with_hash(saved_state)
 ```
 
 ## JSON
@@ -83,7 +83,7 @@ Calling `#to_json` on the Hash produced by `#to_hash` should produce JSON compat
 ```ruby
 require 'json'
 
-net = Brain::NeuralNetwork.new
+net = Brian::NeuralNetwork.new
 net.train(data)
 
 net_json = net.to_hash.to_json => "{\"layers\":...
@@ -91,4 +91,4 @@ net_json = net.to_hash.to_json => "{\"layers\":...
 
 # Licensing
 
-In coherence with the licensing of the JavaScript `brain` library, this gem is licensed under the MIT license (Expat).
+In coherence with the licensing of the JavaScript `brain.js` library, this gem is licensed under the MIT license (Expat).

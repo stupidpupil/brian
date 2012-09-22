@@ -1,10 +1,10 @@
-require 'brain'
+require 'brian'
 
-describe Brain::NeuralNetwork do
+describe Brian::NeuralNetwork do
 	describe "Can learn XOR" do
 
 		before do
-			@net = Brain::NeuralNetwork.new
+			@net = Brian::NeuralNetwork.new
 			@net.train([
 				{input: [0, 0], output: [0]},
 				{input: [0, 1], output: [1]},
@@ -29,7 +29,7 @@ describe Brain::NeuralNetwork do
 	describe "Can learn the Colour Contrast demo" do
 
 		before do
-			@net = Brain::NeuralNetwork.new
+			@net = Brian::NeuralNetwork.new
 			@net.train([
 				{input: { r: 0.03, g: 0.7, b: 0.5 }, output: { black: 1.0 }},
 	           	{input: { r: 0.16, g: 0.09, b: 0.2 }, output: { white: 1.0 }},

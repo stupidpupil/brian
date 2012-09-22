@@ -1,4 +1,4 @@
-module Brain
+module Brian
 	class NeuralNetwork
 
 		def to_hash
@@ -49,11 +49,11 @@ module Brain
 
 				hash[:layers].each_with_index do |layer, i|
 					if i == 0 and layer[0].nil?
-						@input_lookup = Brain::Lookup.lookup_from_hash(layer)
+						@input_lookup = Brian::Lookup.lookup_from_hash(layer)
 					end
 
 					if i == @output_layer and layer[0].nil?
-						@output_lookup = Brain::Lookup.lookup_from_hash(layer)
+						@output_lookup = Brian::Lookup.lookup_from_hash(layer)
 					end
 
 					nodes = layer.keys

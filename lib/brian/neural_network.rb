@@ -1,4 +1,4 @@
-module Brain
+module Brian
 	class NeuralNetwork
 
 		def self.random_weight
@@ -54,11 +54,11 @@ module Brain
 		end
 
 		def run(input)
-			input = Brain::Lookup.to_array(@input_lookup, input) if @input_lookup
+			input = Brian::Lookup.to_array(@input_lookup, input) if @input_lookup
 
 			output = self.run_input(input)
 
-			output = Brain::Lookup.to_hash(@output_lookup, output) if @output_lookup
+			output = Brian::Lookup.to_hash(@output_lookup, output) if @output_lookup
 
 			return output
 		end
@@ -88,22 +88,22 @@ module Brain
 			if not data[0][:input].is_a?(Array)
 				if @input_lookup.nil?
 					inputs = data.map {|d| d[:input]}
-					@input_lookup = Brain::Lookup.build_lookup(inputs)
+					@input_lookup = Brian::Lookup.build_lookup(inputs)
 				end
 
 				data.each do |d|
-					d[:input] = Brain::Lookup.to_array(@input_lookup,d[:input])
+					d[:input] = Brian::Lookup.to_array(@input_lookup,d[:input])
 				end
 			end
 
 			if not data[0][:output].is_a?(Array)
 				if @output_lookup.nil?
 					inputs = data.map {|d| d[:output]}
-					@output_lookup = Brain::Lookup.build_lookup(inputs)
+					@output_lookup = Brian::Lookup.build_lookup(inputs)
 				end
 
 				data.each do |d|
-					d[:output] = Brain::Lookup.to_array(@output_lookup,d[:output])
+					d[:output] = Brian::Lookup.to_array(@output_lookup,d[:output])
 				end
 			end
 
@@ -169,7 +169,7 @@ module Brain
 			self.calculate_deltas(target)
 			self.adjust_weights()
 
-			error = Brain::NeuralNetwork.mse(@errors[@output_layer])
+			error = Brian::NeuralNetwork.mse(@errors[@output_layer])
 
 			return error
 		end
