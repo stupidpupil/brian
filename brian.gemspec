@@ -6,7 +6,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["adam@stupidpupil.co.uk"]
   gem.description   = %q{A port of the brain.js library, implementing a multilayer perceptron - a neural network for supervised learning.}
   gem.summary       = %q{Multilayer perceptron (neural network) library.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/stupidpupil/brian"
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
